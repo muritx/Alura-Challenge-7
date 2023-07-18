@@ -1,3 +1,7 @@
+# from fastapi import FastAPI
+
+# app = FastAPI()
+
 from flask import Flask, jsonify, request
 import json
 
@@ -43,6 +47,3 @@ def excluirDepoimento(id):
             del depoimentos[indice]
     
     return jsonify(depoimentos)
-
-if __name__ == '__main__':
-    app.run()
