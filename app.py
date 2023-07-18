@@ -8,6 +8,10 @@ with open('db.json', 'r', encoding='utf-8') as file:
     data = json.load(file)
     depoimentos = data['depoimentos']
 
+@app.route('/')
+def home():
+    return 'API para alimentação do Challenge 7 - Alura'
+
 @app.route('/depoimentos',methods=['GET'])
 def obterDepoimentos():
     return jsonify(depoimentos)
