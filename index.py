@@ -43,3 +43,18 @@ def excluirDepoimento(id):
             del depoimentos[indice]
     
     return jsonify(depoimentos)
+
+@app.route('/depoimentos-home', methods=['GET'])
+def obterDepoimentosHome():
+    depoimentos_randomicos = random.sample(depoimentos, 3)
+    depoimentos_formatados = []
+
+    for depoimento in depoimentos_randomicos:
+        depoimento_formatado = {
+            'foto': depoimento['foto'],
+            'depoimento': depoimento['depoimento'],
+            'nome': depoimento['nome']
+        }
+        depoimentos_formatados.append(depoimento_formatado)
+
+    return jsonify(depoimentos_formatados)
