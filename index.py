@@ -51,11 +51,10 @@ def obterDepoimentosHome():
     depoimentos_formatados = []
 
     for depoimento_json in depoimentos_randomicos:
-        depoimento = json.loads(depoimento_json)
         depoimento_formatado = {
-            'foto': depoimento['foto'],
-            'depoimento': depoimento['depoimento'],
-            'nome': depoimento['nome']
+            'foto': depoimento_json.foto,
+            'depoimento': depoimento_json.depoimento,
+            'nome': depoimento_json.nome
         }
         depoimentos_formatados.append(depoimento_formatado)
 
