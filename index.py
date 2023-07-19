@@ -47,15 +47,14 @@ def excluirDepoimento(id):
 
 @app.route('/depoimentos-home', methods=['GET'])
 def obterDepoimentosHome():
-    depoimentos_randomicos = random.sample(depoimentos, 3)
-    depoimentos_formatados = []
+    depoimentosAleatorios = random.sample(depoimentos, 3)
+    depoimentosRetorno = []
 
-    for depoimento_json in depoimentos_randomicos:
-        depoimento_formatado = {
-            'foto': depoimento_json.foto,
-            'depoimento': depoimento_json.depoimento,
-            'nome': depoimento_json.nome
-        }
-        depoimentos_formatados.append(depoimento_formatado)
+    for depoimento in depoimentosAleatorios:
+        depoimentosRetorno.append({
+            "foto": depoimento["foto"],
+            "depoimento": depoimento["depoimento"],
+            "nome": depoimento["nome"]
+        })
 
-    return jsonify(depoimentos_formatados)
+    return jsonify(depoimentosRetorno)
